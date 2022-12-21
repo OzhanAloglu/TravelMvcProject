@@ -1,0 +1,26 @@
+﻿@using TravelMvc.Models.Siniflar
+@model List<Blog>
+
+<div class="con-bot">
+    @foreach (var item in Model)
+    {
+        <div class="left">
+            <div class="bot-left">
+                <img  style="height:210px; width:340px " src="@item.BlogImage" alt="" />
+            </div>
+            <div class="left-text">
+                <h4>@item.Baslik</h4>
+                <span class="doller">@item.Tarih.ToString("dd:MM:yyyy")</span>
+                <p>@item.Aciklama.Substring(0,90)</p>
+                <p><a href="/Blog/BlogDetay/@item.ID"><span class="read">Devamını Oku >></span></a></p>
+            </div>
+        </div>
+        
+
+    }
+
+    @Html.Action("Partial2", "AnaSayfa")
+
+    
+    <div class="clear"></div>
+</div>

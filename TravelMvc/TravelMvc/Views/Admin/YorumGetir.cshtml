@@ -1,0 +1,37 @@
+﻿@model TravelMvc.Models.Siniflar.Yorumlar
+
+@{
+    ViewBag.Title = "YorumGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yorum Güncelleme Sayfası</h2>
+<br />
+                                                                           
+@using (Html.BeginForm("YorumGuncelle", "Admin", FormMethod.Post))         //Beginformda   1.olan kullanacağımız Actionun ismi Controller yapısı içindeki...
+                                                                           //Beginformda   2.olan Action hangi controller yapısı içindeyse onu.
+                                                                           //Beginformda   3.olan Formun aksiyon tipi. Post olunca çalışsın gibi.
+                                                                           //Beginform
+
+{
+
+
+    @Html.LabelFor(x => x.ID)
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @readonly = "readonly" }) //readonly sadece görüncek ama müdahale edilemeyecek...
+    <br />
+    @Html.LabelFor(x => x.KullanıcıAdi)
+    @Html.TextBoxFor(x => x.KullanıcıAdi, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Mail)
+    @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Yorum)
+    @Html.TextAreaFor(x => x.Yorum, 15, 1, new { @class = "form-control" })
+    <br />
+ 
+    <button class="btn btn-success">Yorum Güncelle</button>
+}
+
+
+
+

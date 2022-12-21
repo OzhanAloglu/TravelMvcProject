@@ -1,0 +1,28 @@
+﻿@using TravelMvc.Models.Siniflar
+@model List<Blog>
+
+
+
+
+<div class="padding">
+    <h4>Son 10 Blog</h4>
+
+    @{int sayi = 0; }
+
+
+    @foreach (var item in Model)
+
+    {
+
+        <ul class="list list-pad">
+            <li class="list-bg"><span>@{sayi++;} @sayi. </span><a href="/Blog/AnaSayfa/@item.ID">@item.Baslik</a></li>
+
+        </ul>
+    }
+
+
+
+
+
+    <a href="/Blog/Index/" class="link1">Tüm Blogları Gör</a>
+</div>

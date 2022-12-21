@@ -1,0 +1,51 @@
+﻿@using TravelMvc.Models.Siniflar
+@model List<Yorumlar>
+
+
+@{
+    ViewBag.Title = "Yorumlar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yorumlar Sayfası</h2>
+
+<table class="table table-bordered "  >
+
+    <tr>
+        <th>Yorum ID</th>
+        <th>Yorumu Yapan Kullanıcı Adı</th>
+        <th>Yorumu Yapan Mail</th>
+        <th>Yorum</t>
+        <th>Blog</t>
+        <th>Sil</th>
+        <th>Güncelle</th>
+
+    </tr>
+    <tbody>
+
+        
+        @foreach (var x in Model)
+        { 
+            <tr>
+                <td>@x.ID</td>
+                <td>@x.KullanıcıAdi</td>
+                <td>@x.Mail</td>
+                <td>@x.Yorum</td>
+                <td>@x.Blog.Baslik</td>
+                <td><a class="btn btn-danger" href="/Admin/YorumSil/@x.ID">Sil</a></td>      
+                <td><a class="btn btn-success" href="/Admin/YorumGetir/@x.ID">Güncelle</a></td>
+
+            </tr>
+
+                                        //href in içindeki link 1.OLAN HANGİ  CONTROLLER İÇİNDE OLDUĞU---2.OLAN İSE HANGİ METODA GİDECEĞİ.
+        }
+
+
+    </tbody>
+
+
+
+
+
+</table>
+

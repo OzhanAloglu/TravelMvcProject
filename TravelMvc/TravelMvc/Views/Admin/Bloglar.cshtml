@@ -1,0 +1,50 @@
+﻿@using TravelMvc.Models.Siniflar
+@model List<Blog>
+
+
+@{
+    ViewBag.Title = "Bloglar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered;" style="background-color:antiquewhite;margin-left:-16px ; margin-right:0px ">
+
+    <tr>
+        <th>Blog Başlık</th>
+        <th>Blog Tarih</th>
+        <th>Blog Açıklama</th>
+
+        <th>Blog Sil</th>
+        <th>Blog Güncelle</th>
+
+    </tr>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr style="font-size:10px;  ">
+
+                <td>@item.Baslik</td>
+                <td>@item.Tarih.ToString("dd:MM:yyyy")</td>
+                <td>@item.Aciklama</td>
+
+                <td><a class="btn btn-danger" href="/Admin/BlogSil/@item.ID">Sil</a></td>
+                <td><a class="btn btn-success" href="/Admin/BlogGetir/@item.ID">Güncelle</a></td>
+
+
+            </tr>
+
+        }
+
+
+
+    </tbody>
+
+
+</table>
+
+<a class="btn btn-info" href="/Admin/BlogEkle/">Yeni Blog Ekle</a>
+<br />
+<br />
+
